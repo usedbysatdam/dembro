@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Learning Library | Educrazy</title>
+  <meta name="description" content="Browse teacher-created worksheets, games, lesson plans, and activities for Pre-K to 8th grade." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/logo/educrazy-icon.png" sizes="any" />
+    <link rel="apple-touch-icon" href="assets/logo/educrazy-icon.png" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261074" />
+  <link rel="stylesheet" href="assets/css/chatbot.css?v=20261067" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Educrazy home">
+        <span class="brand-mark"><img src="assets/logo/educrazy-logo.webp" alt="" width="40" height="40" /></span>
+        <span class="brand-name">Educrazy</span>
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="resources.html">Learning Library</a>
+        <a href="resources.html?type=worksheet">Worksheets</a>
+        <a href="resources.html?type=game">Games</a>
+        <a href="resources.html?type=lesson_plan">Lesson Plans</a>
+        <a href="pricing.html">Pricing</a>
+          <a href="pricing.html#schools">For Schools</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-ghost auth-logged-out" href="login.html">Log In</a>
+        <a class="btn btn-primary auth-logged-out" href="signup.html">Join for free</a>
+        <a class="btn btn-soft auth-logged-in" href="dashboard.html">My Dashboard</a>
+        <a class="btn btn-primary auth-logged-in" href="pricing.html">Upgrade Now</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>Learning Library</span>
+        </div>
+        <h1>Learning Library</h1>
+        <p>40,000+ teacher-created resources for Pre-K through 8th grade. Filter by grade, subject, and resource type.</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="library-toolbar">
+        <form class="library-search" id="librarySearchForm" role="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" />
+            <path d="m20 20-3.5-3.5" />
+          </svg>
+          <input type="search" id="searchInput" placeholder="Search resources by title or skill..." aria-label="Search resources" />
+        </form>
+        <select class="toolbar-select" id="sortSelect" aria-label="Sort resources">
+          <option value="popular">Most popular</option>
+          <option value="newest">Newest first</option>
+          <option value="az">Title A-Z</option>
+        </select>
+        <button class="btn btn-outline filters-toggle" id="filtersToggle" type="button">Filters</button>
+      </div>
+
+      <div class="library-layout">
+        <aside class="filters" id="filters" aria-label="Filters">
+          <div class="filter-group">
+            <h3>Grade</h3>
+            <div id="gradeFilters"></div>
+          </div>
+          <div class="filter-group">
+            <h3>Subject</h3>
+            <div id="subjectFilters"></div>
+          </div>
+          <div class="filter-group">
+            <h3>Resource type</h3>
+            <div id="typeFilters"></div>
+          </div>
+          <div class="filter-group">
+            <h3>Access</h3>
+            <label class="filter-option">
+              <input type="checkbox" id="premiumOnly" />
+              Premium only
+            </label>
+          </div>
+          <button class="btn btn-outline btn-sm filter-reset" id="resetFilters" type="button">Reset filters</button>
+        </aside>
+
+        <section>
+          <div class="results-head">
+            <h2 id="resultsTitle">All resources</h2>
+            <span class="results-count" id="resultsCount">Loading...</span>
+          </div>
+
+          <div class="resource-grid" id="resourceGrid"></div>
+          <div class="load-more-wrap hidden" id="loadMoreWrap">
+            <button class="btn btn-outline" id="loadMoreBtn" type="button">Load more resources</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <div class="modal-backdrop" id="resourceModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18" /></svg>
+      </button>
+      <div class="modal-hero" id="modalHero"></div>
+      <div class="modal-body">
+        <div class="modal-meta" id="modalMeta"></div>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDesc"></p>
+        <div id="modalLock"></div>
+        <div class="modal-actions" id="modalActions"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-wrap" id="toastWrap"></div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <span class="brand-mark"><img src="assets/logo/educrazy-logo.webp" alt="" width="40" height="40" /></span>
+            <span class="brand-name">Educrazy</span>
+          </a>
+          <p>Teacher-created worksheets, games, and activities for Pre-K through 8th grade.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Educational tools</h4>
+          <a href="resources.html">Learning Library</a>
+          <a href="resources.html?type=worksheet">Worksheets</a>
+          <a href="resources.html?type=game">Games</a>
+          <a href="resources.html?type=lesson_plan">Lesson Plans</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="pricing.html">Pricing</a>
+          <a href="pricing.html#schools">For Schools</a>
+          <a href="login.html">Log In</a>
+          <a href="signup.html">Sign Up</a>
+        </div>
+        <div class="footer-col">
+          <h4>About</h4>
+          <a href="index.html">Company</a>
+          <a href="pricing.html">Membership</a>
+          <a href="resources.html">Resources</a>
+        </div>
+        <div class="footer-col">
+          <h4>Get started</h4>
+          <p style="color:#9AA6BA;font-size:0.84rem;margin-bottom:12px;">Free forever. Upgrade only when you need more.</p>
+          <a class="btn btn-primary btn-sm" href="signup.html">Create free account</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span data-current-year>2026</span> Educrazy. Built as a demo project inspired by Education.com.</span>
+        <div class="legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/supabase.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/js/bubble-menu.js?v=20261032"></script>
+  <script src="assets/js/resources.js"></script>
+  <script src="assets/js/chatbot.js?v=20261065"></script>
+</body>
+</html>

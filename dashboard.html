@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Dashboard | Educrazy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/logo/educrazy-icon.png" sizes="any" />
+    <link rel="apple-touch-icon" href="assets/logo/educrazy-icon.png" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261081" />
+  <link rel="stylesheet" href="assets/css/chatbot.css?v=20261067" />
+</head>
+<body class="dash-page">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark"><img src="assets/logo/educrazy-logo.webp" alt="" width="40" height="40" /></span>
+        <span class="brand-name">Educrazy</span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <a href="resources.html">Learning Library</a>
+        <a href="resources.html?type=worksheet">Worksheets</a>
+        <a href="resources.html?type=game">Games</a>
+        <a href="resources.html?type=lesson_plan">Lesson Plans</a>
+        <a href="pricing.html">Pricing</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-soft auth-logged-in" href="dashboard.html">My Dashboard</a>
+        <a class="btn btn-primary auth-logged-in" href="pricing.html">Upgrade Now</a>
+        <button class="btn btn-ghost" type="button" id="logoutBtn">Log out</button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="dash-wrap">
+    <div class="container">
+      <div class="dash-head">
+        <div class="dash-head-main">
+          <div class="dash-avatar" id="dashAvatar" aria-hidden="true">EC</div>
+          <div class="dash-head-text">
+            <span class="eyebrow">My dashboard</span>
+            <h1>Welcome back, <span data-user-name>friend</span></h1>
+            <p>Lihat koleksi, progress, dan obrolan komunitas kamu dalam satu tempat.</p>
+          </div>
+        </div>
+        <div class="dash-head-actions">
+          <a class="btn btn-primary" href="resources.html">Browse the library</a>
+          <button class="btn btn-ghost dash-logout" type="button" data-logout>Log out</button>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-card stat-saved">
+          <span class="stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </span>
+          <div class="stat-body">
+            <small>Saved resources</small>
+            <strong id="savedCount">0</strong>
+          </div>
+        </div>
+        <div class="stat-card stat-done">
+          <span class="stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.1V12a9 9 0 1 1-5.3-8.2"/><path d="M9 11l3 3 8-8"/></svg>
+          </span>
+          <div class="stat-body">
+            <small>Completed</small>
+            <strong id="doneCount">0</strong>
+          </div>
+        </div>
+        <div class="stat-card stat-plan">
+          <span class="stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 16.9 6.1 20l1.2-6.5L2.5 8.9 9.1 8z"/></svg>
+          </span>
+          <div class="stat-body">
+            <small>Current plan</small>
+            <strong id="planName" class="stat-plan-value">Free</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Learn Hub Tabs -->
+      <div class="hub-tabs" role="tablist" aria-label="Dashboard sections">
+        <button class="hub-tab is-active" role="tab" aria-selected="true" data-tab="collection" id="tab-collection">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 12h6M9 16h6"/></svg>
+          <span>Koleksi</span>
+        </button>
+        <button class="hub-tab" role="tab" aria-selected="false" data-tab="progress" id="tab-progress">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-6"/></svg>
+          <span>Progress</span>
+        </button>
+        <button class="hub-tab" role="tab" aria-selected="false" data-tab="calendar" id="tab-calendar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <span>Jadwal</span>
+        </button>
+        <button class="hub-tab" role="tab" aria-selected="false" data-tab="community" id="tab-community">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>Komunitas</span>
+        </button>
+        <button class="hub-tab" role="tab" aria-selected="false" data-tab="contests" id="tab-contests">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M12 16v-4M12 8v-4M4 20h16"/></svg>
+          <span>Lomba</span>
+        </button>
+        <button class="hub-tab" role="tab" aria-selected="false" data-tab="edumate" id="tab-edumate">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M12 17v4M9 20h6"/></svg>
+          <span>Edumate</span>
+        </button>
+      </div>
+
+      <!-- Learn Hub Tabs (mobile bottom bar) -->
+      <nav class="hub-bottom-nav" role="tablist" aria-label="Dashboard sections (mobile)">
+        <button class="hub-tab hub-bottom-tab is-active" role="tab" aria-selected="true" data-tab="collection" id="m-tab-collection">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 12h6M9 16h6"/></svg>
+          <span>Koleksi</span>
+        </button>
+        <button class="hub-tab hub-bottom-tab" role="tab" aria-selected="false" data-tab="progress" id="m-tab-progress">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-6"/></svg>
+          <span>Progress</span>
+        </button>
+        <button class="hub-tab hub-bottom-tab" role="tab" aria-selected="false" data-tab="calendar" id="m-tab-calendar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <span>Jadwal</span>
+        </button>
+        <button class="hub-tab hub-bottom-tab" role="tab" aria-selected="false" data-tab="community" id="m-tab-community">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>Komunitas</span>
+        </button>
+        <button class="hub-tab hub-bottom-tab" role="tab" aria-selected="false" data-tab="contests" id="m-tab-contests">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M12 16v-4M12 8v-4M4 20h16"/></svg>
+          <span>Lomba</span>
+        </button>
+        <button class="hub-tab hub-bottom-tab" role="tab" aria-selected="false" data-tab="edumate" id="m-tab-edumate">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M12 17v4M9 20h6"/></svg>
+          <span>Edumate</span>
+        </button>
+      </nav>
+
+      <!-- Tab Panels -->
+      <div class="hub-panels">
+        <!-- Collection Panel -->
+        <div class="hub-panel is-active" role="tabpanel" aria-labelledby="tab-collection" id="panel-collection">
+          <section class="panel">
+            <div class="panel-head">
+              <h2>My collection</h2>
+              <a href="resources.html">Add more</a>
+            </div>
+            <div class="saved-list" id="savedList">
+              <div class="dash-empty">
+                <p>Loading your collection...</p>
+              </div>
+            </div>
+          </section>
+
+          <div style="display:grid;gap:24px;">
+            <section class="panel plan-card">
+              <span class="plan-badge" id="planBadge">Free plan</span>
+              <h2 id="planTitle">You are on the free plan</h2>
+              <p id="planDesc">Unlock unlimited downloads, guided lessons, and progress insights with premium.</p>
+              <div class="progress-track"><i id="planProgress" style="width: 0%"></i></div>
+              <div class="progress-label">
+                <span id="planProgressLabel">No saved resources yet</span>
+                <span id="planProgressPct">0%</span>
+              </div>
+              <a class="btn btn-primary" href="pricing.html" id="planCta">Upgrade to premium</a>
+            </section>
+
+            <section class="panel">
+              <div class="panel-head">
+                <h2>Recommended for you</h2>
+                <button class="btn btn-ghost btn-sm" type="button" id="editPrefsBtn" style="display:none;">Ubah preferensi</button>
+              </div>
+              <div class="saved-list" id="recommendedList"></div>
+            </section>
+          </div>
+        </div>
+
+        <!-- Progress Panel -->
+        <div class="hub-panel" role="tabpanel" aria-labelledby="tab-progress" id="panel-progress" hidden>
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Progress Overview</h2>
+            </div>
+            <div class="progress-overview" id="progressOverview">
+              <div class="dash-empty"><p>Loading progress...</p></div>
+            </div>
+          </section>
+          <section class="panel">
+            <div class="panel-head">
+              <h2>7-Day Activity</h2>
+            </div>
+            <div class="activity-heatmap" id="activityHeatmap"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Subject Progress</h2>
+            </div>
+            <div class="subject-bars" id="subjectBars"></div>
+          </section>
+        </div>
+
+        <!-- Calendar Panel -->
+        <div class="hub-panel" role="tabpanel" aria-labelledby="tab-calendar" id="panel-calendar" hidden>
+          <section class="panel">
+            <div class="calendar-wrap" id="calendarWrap">
+              <div class="dash-empty"><p>Loading calendar...</p></div>
+            </div>
+          </section>
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Upcoming Sessions</h2>
+            </div>
+            <div class="agenda-list" id="agendaList"></div>
+          </section>
+        </div>
+
+        <!-- Community Panel -->
+        <div class="hub-panel" role="tabpanel" aria-labelledby="tab-community" id="panel-community" hidden>
+          <section class="panel threads-panel">
+            <div class="threads-head">
+              <div class="threads-head-text">
+                <h2>Komunitas</h2>
+                <p>Ruang berbagi bebas antara anggota dan Edumate. Bukan ruang kelas, jadi santai saja.</p>
+              </div>
+              <div class="threads-head-actions">
+                <span class="demo-badge">Demo</span>
+                <button class="threads-new" type="button" id="communityNewBtn" aria-label="Tulis postingan baru" title="Tulis postingan baru">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="threads-feedtabs" role="tablist" aria-label="Pilih feed komunitas">
+              <button class="threads-feedtab is-active" type="button" role="tab" aria-selected="true" data-feed="foryou">Untuk Kamu</button>
+              <button class="threads-feedtab" type="button" role="tab" aria-selected="false" data-feed="following">Mengikuti</button>
+              <button class="threads-feedtab" type="button" role="tab" aria-selected="false" data-feed="edumate">Edumate</button>
+            </div>
+
+            <div class="threads-filter" id="communityFilter" role="group" aria-label="Filter topik komunitas"></div>
+
+            <div class="threads-feed" id="communityFeed" aria-live="polite">
+              <div class="dash-empty"><p>Memuat komunitas...</p></div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Contests Panel -->
+        <div class="hub-panel" role="tabpanel" aria-labelledby="tab-contests" id="panel-contests" hidden>
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Contests & Competitions</h2>
+              <span class="demo-badge">Demo</span>
+            </div>
+            <div class="contests-grid" id="contestsGrid">
+              <div class="dash-empty"><p>Loading contests...</p></div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Edumate Panel -->
+        <div class="hub-panel" role="tabpanel" aria-labelledby="tab-edumate" id="panel-edumate" hidden>
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Find Your Edumate</h2>
+            </div>
+            <div class="edumate-filter" role="group" aria-label="Filter by type">
+              <button class="edumate-filter-btn is-active" data-type="all" type="button" aria-pressed="true">Semua</button>
+              <button class="edumate-filter-btn" data-type="online" type="button" aria-pressed="false">Online</button>
+              <button class="edumate-filter-btn" data-type="offline" type="button" aria-pressed="false">Offline</button>
+              <button class="edumate-filter-btn" data-type="offline_privat" type="button" aria-pressed="false">Offline Privat</button>
+            </div>
+            <div class="edumate-grid" id="edumateGrid">
+              <div class="dash-empty"><p>Loading mentors...</p></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" style="padding-top:40px;">
+    <div class="container">
+      <div class="footer-bottom" style="border:0;padding-top:0;">
+        <span>&copy; <span data-current-year>2026</span> Educrazy. Built as a demo project inspired by Education.com.</span>
+        <div class="legal">
+          <a href="pricing.html">Pricing</a>
+          <a href="index.html">Home</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-wrap" id="toastWrap"></div>
+
+  <!-- Learning Preferences Popup -->
+  <div class="modal-backdrop" id="prefsModal" role="dialog" aria-modal="true" aria-labelledby="prefsTitle" hidden>
+    <div class="modal prefs-modal">
+      <button class="modal-close" id="prefsClose" aria-label="Close preferences popup" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="modal-body">
+        <h2 id="prefsTitle">Atur Preferensi Belajar</h2>
+        <p style="color:var(--muted);margin-bottom:20px;">Pilih hingga 3 mapel, metode belajar, dan tujuan agar rekomendasi lebih personal.</p>
+        
+        <div class="prefs-section">
+          <h3>Mapel <span class="prefs-count" id="subjectCount">0/3</span></h3>
+          <div class="chip-group" id="subjectChips" role="group" aria-label="Select subjects"></div>
+        </div>
+        
+        <div class="prefs-section">
+          <h3>Metode Belajar</h3>
+          <div class="chip-group" id="methodChips" role="group" aria-label="Select learning methods"></div>
+        </div>
+        
+        <div class="prefs-section">
+          <h3>Tujuan Belajar (opsional)</h3>
+          <div class="chip-group" id="goalChips" role="group" aria-label="Select learning goals"></div>
+        </div>
+        
+        <div class="modal-actions" style="margin-top:24px;">
+          <button class="btn btn-ghost" type="button" id="prefsSkip">Lewati dulu</button>
+          <button class="btn btn-orange" type="button" id="prefsSave" disabled>Simpan & Mulai Belajar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Community Compose Modal -->
+  <div class="modal-backdrop" id="communityComposeModal" role="dialog" aria-modal="true" aria-labelledby="communityComposeTitle" hidden>
+    <div class="modal compose-modal">
+      <button class="modal-close" id="communityComposeClose" aria-label="Tutup form postingan" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="modal-body">
+        <h2 id="communityComposeTitle">Tulis postingan</h2>
+        <form class="threads-composer" id="communityCompose">
+          <div class="threads-composer-avatar" id="composeAvatar" aria-hidden="true">EC</div>
+          <div class="threads-composer-main">
+            <div class="threads-composer-identity">
+              <strong data-user-name>Kamu</strong>
+              <span class="threads-handle" id="composeHandle">@kamu</span>
+            </div>
+            <textarea id="communityComposeText" placeholder="Apa yang sedang kamu pikirkan?" rows="3" maxlength="500" required></textarea>
+            <div class="threads-composer-gallery" id="communityComposeGallery" role="group" aria-label="Tambah gambar (opsional)"></div>
+            <div class="threads-composer-foot">
+              <label class="sr-only" for="communityComposeTopic">Topik</label>
+              <select id="communityComposeTopic" class="threads-topic-select"></select>
+              <span class="threads-counter" id="communityComposeCount" aria-live="polite">0/500</span>
+              <button type="submit" class="btn btn-primary btn-sm" id="communityComposeSubmit" disabled>Posting</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edumate Detail Modal -->
+  <div class="modal-backdrop" id="edumateModal" role="dialog" aria-modal="true" aria-labelledby="edumateModalTitle" hidden>
+    <div class="modal edumate-modal">
+      <button class="modal-close" id="edumateModalClose" aria-label="Close Edumate detail" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="modal-body" id="edumateModalBody">
+        <!-- Dynamic content -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Edumate Address Form Modal (for Offline Privat) -->
+  <div class="modal-backdrop" id="addressModal" role="dialog" aria-modal="true" aria-labelledby="addressModalTitle" hidden>
+    <div class="modal address-modal">
+      <button class="modal-close" id="addressModalClose" aria-label="Close address form" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="modal-body">
+        <h2 id="addressModalTitle">Alamat Belajar</h2>
+        <p style="color:var(--muted);margin-bottom:20px;">Tentor akan datang ke alamat Anda. Isi detail lengkapnya ya.</p>
+        <form id="addressForm">
+          <input type="hidden" id="addressMentorId">
+          <input type="hidden" id="addressSessionId">
+          <div class="field">
+            <label for="addressStreet">Jalan & Nomor Rumah</label>
+            <input type="text" id="addressStreet" name="street" placeholder="Contoh: Jl. Melati No. 12" required>
+          </div>
+          <div class="field">
+            <label for="addressCity">Kota / Kabupaten</label>
+            <input type="text" id="addressCity" name="city" placeholder="Contoh: Jakarta Barat" required>
+          </div>
+          <div class="field">
+            <label for="addressNotes">Catatan Tambahan (opsional)</label>
+            <input type="text" id="addressNotes" name="notes" placeholder="Contoh: Dekat masjid, pintu warna biru">
+          </div>
+          <div class="modal-actions" style="margin-top:24px;">
+            <button class="btn btn-ghost" type="button" id="addressCancel">Batal</button>
+            <button class="btn btn-primary" type="submit">Simpan & Pilih Jadwal</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Schedule Booking Modal -->
+  <div class="modal-backdrop" id="scheduleModal" role="dialog" aria-modal="true" aria-labelledby="scheduleModalTitle" hidden>
+    <div class="modal schedule-modal">
+      <button class="modal-close" id="scheduleModalClose" aria-label="Close schedule booking" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="modal-body" id="scheduleModalBody">
+        <!-- Dynamic content -->
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/supabase.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/js/bubble-menu.js?v=20261032"></script>
+  <script src="assets/js/dashboard.js?v=20261081"></script>
+  <script src="assets/js/chatbot.js?v=20261065"></script>
+</body>
+</html>

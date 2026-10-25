@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pricing | Educrazy</title>
+  <meta name="description" content="Compare free, premium, and school plans for Educrazy learning resources." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/logo/educrazy-icon.png" sizes="any" />
+    <link rel="apple-touch-icon" href="assets/logo/educrazy-icon.png" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261074" />
+  <link rel="stylesheet" href="assets/css/chatbot.css?v=20261067" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark"><img src="assets/logo/educrazy-logo.webp" alt="" width="40" height="40" /></span>
+        <span class="brand-name">Educrazy</span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <a href="resources.html">Learning Library</a>
+        <a href="resources.html?type=worksheet">Worksheets</a>
+        <a href="resources.html?type=game">Games</a>
+        <a href="resources.html?type=lesson_plan">Lesson Plans</a>
+        <a href="pricing.html">Pricing</a>
+          <a href="pricing.html#schools">For Schools</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-ghost auth-logged-out" href="login.html">Log In</a>
+        <a class="btn btn-primary auth-logged-out" href="signup.html">Join for free</a>
+        <a class="btn btn-soft auth-logged-in" href="dashboard.html">My Dashboard</a>
+        <a class="btn btn-primary auth-logged-in" href="pricing.html">Upgrade Now</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero" style="text-align:center;">
+      <div class="container">
+        <span class="eyebrow">Membership</span>
+        <h1>Simple plans for every learner</h1>
+        <p style="margin-inline:auto;">Start free. Upgrade when you need unlimited access, guided lessons, and progress insights.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:46px;">
+      <div class="container">
+        <div class="pricing-toggle" role="group" aria-label="Billing period">
+          <button type="button" id="billingMonthly" class="is-active">Monthly</button>
+          <button type="button" id="billingYearly">Yearly <span class="save-chip">SAVE 37%</span></button>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="plan">
+            <h3>Free</h3>
+            <p class="plan-sub">For exploring the library.</p>
+            <div class="plan-price"><strong>$0</strong><span>forever</span></div>
+            <p class="plan-note">No credit card required.</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5" /></svg> Access to free worksheets and games</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5" /></svg> Save resources to collections</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5" /></svg> Basic progress tracking</li>
+              <li class="muted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18" /></svg> Premium resources</li>
+              <li class="muted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18" /></svg> Guided lessons</li>
+            </ul>
+            <a class="btn btn-outline" href="signup.html" data-plan="free">Join for free</a>
+          </article>
+
+          <article class="plan featured">
+            <span class="plan-flag">Most popular</span>
+            <h3>Premium</h3>
+            <p class="plan-sub">For families and active teachers.</p>
+            <div class="plan-price">
+              <strong id="premiumPrice">$15.99</strong>
+              <span id="premiumUnit">/ month</span>
+            </div>
+            <p class="plan-note" id="premiumNote">Billed monthly. Cancel anytime.</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5" /></svg> Unlimited access to 40,000+ resources</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5" /></svg> All games and interactive worksheets</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5" /></svg> Guided lesson pathways</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5" /></svg> Progress insights for each learner</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5" /></svg> Assignments for home or classroom</li>
+            </ul>
+            <button class="btn btn-primary" type="button" id="premiumCta">Start premium</button>
+          </article>
+
+          <article class="plan" id="schools">
+            <h3>Schools</h3>
+            <p class="plan-sub">For classrooms and districts.</p>
+            <div class="plan-price"><strong>Custom</strong></div>
+            <p class="plan-note">Volume pricing and invoicing available.</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5" /></svg> Unlimited teacher and student accounts</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5" /></svg> Rostering and admin reporting</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5" /></svg> Dedicated onboarding</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5" /></svg> Standards alignment support</li>
+            </ul>
+            <a class="btn btn-outline" href="mailto:schools@example.com" data-plan="school">Request a quote</a>
+          </article>
+        </div>
+
+        <div class="notice">
+          Demo project: no real payments are processed. Premium activation is simulated locally so you
+          can test gated resources. In production, connect Stripe Checkout or Paddle to the
+          <code>set_plan</code> flow.
+        </div>
+
+        <div class="pricing-faq">
+          <h2>Questions, answered</h2>
+
+          <details class="faq-item" open>
+            <summary>What is included in the free plan?</summary>
+            <p>You get access to every free worksheet, game, lesson plan, and activity, plus personal collections and basic progress tracking. Premium resources are locked until you upgrade.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I cancel anytime?</summary>
+            <p>Yes. Memberships renew automatically, but you can cancel at any time from your dashboard and keep access until the end of the billing period.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I use Educrazy with my whole class?</summary>
+            <p>Yes. Premium supports assignments for individual learners or a classroom, and school plans add rostering, admin reporting, and onboarding.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you offer homeschool discounts?</summary>
+            <p>Homeschool families use the same premium membership. Annual billing brings the effective price down to about $10 per month.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="checkoutModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle" style="max-width:520px;">
+      <button class="modal-close" id="checkoutClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18" /></svg>
+      </button>
+      <div class="modal-body" style="padding:32px;">
+        <h2 id="checkoutTitle" style="font-size:1.5rem;">Checkout is not connected</h2>
+        <p>This demo runs without a payment provider. To test premium features, activate a demo membership below.</p>
+        <div class="premium-lock" style="margin-top:16px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+          <div>
+            <strong>Production checklist</strong>
+            <p>Create a Stripe Checkout session, verify the webhook, then call <code>set_plan('premium')</code> from a secure server function.</p>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-primary" type="button" id="activateDemo">Activate demo premium</button>
+          <button class="btn btn-ghost" type="button" id="checkoutCancel">Not now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-wrap" id="toastWrap"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/supabase.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/js/bubble-menu.js?v=20261032"></script>
+  <script src="assets/js/pricing.js"></script>
+  <script src="assets/js/chatbot.js?v=20261065"></script>
+</body>
+</html>

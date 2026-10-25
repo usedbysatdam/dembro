@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Join for Free | Educrazy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/logo/educrazy-icon.png" sizes="any" />
+    <link rel="apple-touch-icon" href="assets/logo/educrazy-icon.png" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261074" />
+  <link rel="stylesheet" href="assets/css/chatbot.css?v=20261067" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark"><img src="assets/logo/educrazy-logo.webp" alt="" width="40" height="40" /></span>
+        <span class="brand-name">Educrazy</span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <a href="resources.html">Learning Library</a>
+        <a href="pricing.html">Pricing</a>
+          <a href="pricing.html#schools">For Schools</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-ghost auth-logged-out" href="login.html">Log In</a>
+        <a class="btn btn-primary auth-logged-out" href="signup.html">Join for free</a>
+        <a class="btn btn-soft auth-logged-in" href="dashboard.html">My Dashboard</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="auth-shell">
+    <aside class="auth-aside">
+      <span class="eyebrow">Free forever</span>
+      <h2>Everything you need to help them thrive.</h2>
+      <p>Create a free account and start saving worksheets, games, and lesson plans today.</p>
+      <ul class="auth-perks">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5" /></svg>
+          Instant access to free worksheets and games
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5" /></svg>
+          Personal collections for every learner
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5" /></svg>
+          Progress tracking from Pre-K to 8th grade
+        </li>
+      </ul>
+      <p class="auth-quote">"I can find exactly what my students need in minutes." &mdash; Homeschool parent</p>
+    </aside>
+
+    <div class="auth-main">
+      <div class="auth-card">
+        <h1>Join for free</h1>
+        <p>Create your account in less than a minute.</p>
+
+        <div class="form-error" id="formError"></div>
+        <div class="notice hidden" id="demoNotice" style="margin:0 0 18px;">
+          Demo mode is active (Supabase not configured). Accounts are stored in this browser only.
+        </div>
+
+        <form id="signupForm" novalidate>
+          <div class="field">
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name" autocomplete="name" placeholder="Alex Johnson" required />
+          </div>
+          <div class="field">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" autocomplete="new-password" placeholder="At least 6 characters" minlength="6" required />
+          </div>
+
+          <div class="field">
+            <label>I am a</label>
+            <div class="role-picker">
+              <label><input type="radio" name="role" value="parent" checked /><span>Parent</span></label>
+              <label><input type="radio" name="role" value="teacher" /><span>Teacher</span></label>
+              <label><input type="radio" name="role" value="homeschool" /><span>Homeschool</span></label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="grade">Grade I mostly work with</label>
+            <select id="grade" name="grade">
+              <option value="">Select a grade</option>
+              <option>Pre-K</option>
+              <option>Kindergarten</option>
+              <option>1st</option>
+              <option>2nd</option>
+              <option>3rd</option>
+              <option>4th</option>
+              <option>5th</option>
+              <option>6th</option>
+              <option>7th</option>
+              <option>8th</option>
+            </select>
+          </div>
+
+          <button class="btn btn-primary btn-block btn-lg" type="submit" id="submitBtn">Create free account</button>
+          <p class="field-hint" style="text-align:center;margin-top:12px;">
+            By joining you agree to our Terms of Use and Privacy Policy.
+          </p>
+        </form>
+
+        <div class="divider">Already a member?</div>
+        <a class="btn btn-outline btn-block" href="login.html">Log in instead</a>
+      </div>
+    </div>
+  </main>
+
+  <div class="toast-wrap" id="toastWrap"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/supabase.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/js/bubble-menu.js?v=20261032"></script>
+  <script src="assets/js/auth.js?v=20261061"></script>
+  <script src="assets/js/chatbot.js?v=20261065"></script>
+</body>
+</html>

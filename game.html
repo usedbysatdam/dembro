@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Play | Educrazy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/logo/educrazy-icon.png" sizes="any" />
+    <link rel="apple-touch-icon" href="assets/logo/educrazy-icon.png" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261074" />
+  <link rel="stylesheet" href="assets/css/chatbot.css?v=20261067" />
+</head>
+<body class="game-body">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Educrazy home">
+        <span class="brand-mark"><img src="assets/logo/educrazy-logo.webp" alt="" width="40" height="40" /></span>
+        <span class="brand-name">Educrazy</span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <a href="resources.html">Learning Library</a>
+        <a href="resources.html?type=game">Games</a>
+        <a href="resources.html?type=worksheet">Worksheets</a>
+        <a href="pricing.html">Pricing</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-ghost auth-logged-out" href="login.html">Log In</a>
+        <a class="btn btn-primary auth-logged-out" href="signup.html">Join for free</a>
+        <a class="btn btn-soft auth-logged-in" href="dashboard.html">My Dashboard</a>
+        <a class="btn btn-primary auth-logged-in" href="pricing.html">Upgrade Now</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="game-page">
+    <div class="container game-container">
+      <div class="game-topline">
+        <a class="game-back" href="resources.html?type=game">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
+          Back to games
+        </a>
+        <div class="game-tags" id="gameTags"></div>
+      </div>
+
+      <section class="game-shell" id="gameShell" aria-live="polite">
+        <div class="game-loading">
+          <div class="game-spinner"></div>
+          <p>Loading game...</p>
+        </div>
+      </section>
+
+      <p class="game-footnote">Free games can be played by anyone. Premium games require a premium account.</p>
+    </div>
+  </main>
+
+  <div class="toast-wrap" id="toastWrap"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/supabase.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/js/bubble-menu.js?v=20261032"></script>
+  <script src="assets/js/game.js?v=20261025"></script>
+  <script src="assets/js/chatbot.js?v=20261065"></script>
+</body>
+</html>

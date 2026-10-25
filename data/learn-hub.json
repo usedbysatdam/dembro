@@ -1,0 +1,573 @@
+{
+  "mentors": [
+    {
+      "id": "m1",
+      "name": "Budi Santoso, S.Pd",
+      "initials": "BS",
+      "avatarColor": "#0249E1",
+      "rating": 4.9,
+      "reviewCount": 127,
+      "type": "online",
+      "subjects": ["Matematika", "IPA"],
+      "grades": ["4th", "5th", "6th"],
+      "pricePerHour": 150000,
+      "zoomLink": "https://zoom.us/j/1234567890?pwd=demo",
+      "bio": "Pengajar berpengalaman 8 tahun di sekolah menengah. Spesialis persiapan UTBK/SBMPTN Matematika dan IPA.",
+      "schedule": [
+        { "day": "Senin", "time": "16:00-17:30", "grade": "5th", "subject": "Matematika" },
+        { "day": "Rabu", "time": "16:00-17:30", "grade": "6th", "subject": "IPA" },
+        { "day": "Sabtu", "time": "09:00-10:30", "grade": "4th", "subject": "Matematika" }
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "Siti Rahayu, M.Pd",
+      "initials": "SR",
+      "avatarColor": "#EE3D5A",
+      "rating": 4.8,
+      "reviewCount": 89,
+      "type": "online",
+      "subjects": ["Membaca", "Menulis"],
+      "grades": ["1st", "2nd", "3rd"],
+      "pricePerHour": 120000,
+      "zoomLink": "https://meet.google.com/abc-defg-hij?demo",
+      "bio": "Ahli literasi awal dengan sertifikasi Orton-Gillingham. Fokus pada membaca dan menulis untuk kelas 1-3.",
+      "schedule": [
+        { "day": "Selasa", "time": "15:00-16:00", "grade": "1st", "subject": "Membaca" },
+        { "day": "Kamis", "time": "15:00-16:00", "grade": "2nd", "subject": "Menulis" },
+        { "day": "Minggu", "time": "10:00-11:00", "grade": "3rd", "subject": "Membaca" }
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "Ahmad Fauzi, S.T",
+      "initials": "AF",
+      "avatarColor": "#111111",
+      "rating": 4.7,
+      "reviewCount": 203,
+      "type": "offline",
+      "subjects": ["Matematika", "Fisika"],
+      "grades": ["7th", "8th", "9th", "10th", "11th", "12th"],
+      "pricePerHour": 200000,
+      "address": "Jl. Sudirman No. 45, Kel. Menteng, Kec. Menteng, Jakarta Pusat 10310",
+      "bio": "Alumni ITB, 10 tahun mengajar fisika dan matematika SMA. Tempat belajar nyaman dengan whiteboard dan AC.",
+      "schedule": [
+        { "day": "Senin", "time": "18:00-20:00", "grade": "10th", "subject": "Fisika" },
+        { "day": "Kamis", "time": "18:00-20:00", "grade": "11th", "subject": "Matematika" },
+        { "day": "Sabtu", "time": "13:00-15:00", "grade": "12th", "subject": "Fisika" }
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "Dewi Lestari, S.Pd",
+      "initials": "DL",
+      "avatarColor": "#DAFB71",
+      "rating": 4.9,
+      "reviewCount": 156,
+      "type": "offline",
+      "subjects": ["IPA", "Biologi"],
+      "grades": ["7th", "8th", "9th", "10th", "11th", "12th"],
+      "pricePerHour": 180000,
+      "address": "Jl. Gatot Subroto Kav. 12, Kel. Kuningan, Kec. Setiabudi, Jakarta Selatan 12920",
+      "bio": "Guru Biologi SMA favorit dengan metode pembelajaran berbasis proyek. Laboratorium mini tersedia di tempat.",
+      "schedule": [
+        { "day": "Selasa", "time": "17:00-19:00", "grade": "9th", "subject": "IPA" },
+        { "day": "Jumat", "time": "17:00-19:00", "grade": "11th", "subject": "Biologi" },
+        { "day": "Sabtu", "time": "10:00-12:00", "grade": "10th", "subject": "IPA" }
+      ]
+    },
+    {
+      "id": "m5",
+      "name": "Rizky Pratama, S.Kom",
+      "initials": "RP",
+      "avatarColor": "#80B0EC",
+      "rating": 4.8,
+      "reviewCount": 74,
+      "type": "offline_privat",
+      "subjects": ["TKJ", "Informatika", "Matematika"],
+      "grades": ["7th", "8th", "9th", "10th", "11th", "12th"],
+      "pricePerHour": 250000,
+      "bio": "Software engineer dan tutor privat TKJ/Informatika. Mengajar coding, jaringan, dan matematika komputasi. Datang ke rumah Anda.",
+      "schedule": [
+        { "day": "Senin", "time": "19:00-21:00", "grade": "11th", "subject": "TKJ" },
+        { "day": "Rabu", "time": "19:00-21:00", "grade": "10th", "subject": "Informatika" },
+        { "day": "Sabtu", "time": "14:00-16:00", "grade": "9th", "subject": "Matematika" }
+      ]
+    },
+    {
+      "id": "m6",
+      "name": "Maya Indah, S.Psi",
+      "initials": "MI",
+      "avatarColor": "#EE3D5A",
+      "rating": 4.9,
+      "reviewCount": 92,
+      "type": "offline_privat",
+      "subjects": ["Membaca", "Menulis", "IPS"],
+      "grades": ["Pre-K", "Kindergarten", "1st", "2nd", "3rd"],
+      "pricePerHour": 175000,
+      "bio": "Psikolog anak dengan spesialisasi kesulitan belajar. Mengajar membaca, menulis, dan IPS dengan pendekatan bermain. Datang ke rumah Anda.",
+      "schedule": [
+        { "day": "Selasa", "time": "14:00-15:30", "grade": "1st", "subject": "Membaca" },
+        { "day": "Kamis", "time": "14:00-15:30", "grade": "2nd", "subject": "Menulis" },
+        { "day": "Sabtu", "time": "09:00-10:30", "grade": "Kindergarten", "subject": "Membaca" }
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "s1",
+      "mentorId": "m1",
+      "title": "Matematika: Pecahan & Persen",
+      "subject": "Matematika",
+      "grade": "5th",
+      "date": "2026-11-02",
+      "time": "16:00",
+      "duration": 90,
+      "type": "online",
+      "status": "scheduled",
+      "zoomLink": "https://zoom.us/j/1234567890?pwd=demo"
+    },
+    {
+      "id": "s2",
+      "mentorId": "m1",
+      "title": "IPA: Sistem Tata Surya",
+      "subject": "IPA",
+      "grade": "6th",
+      "date": "2026-11-04",
+      "time": "16:00",
+      "duration": 90,
+      "type": "online",
+      "status": "scheduled",
+      "zoomLink": "https://zoom.us/j/1234567890?pwd=demo"
+    },
+    {
+      "id": "s3",
+      "mentorId": "m2",
+      "title": "Membaca: Fonik Lanjutan",
+      "subject": "Membaca",
+      "grade": "1st",
+      "date": "2026-11-03",
+      "time": "15:00",
+      "duration": 60,
+      "type": "online",
+      "status": "completed",
+      "zoomLink": "https://meet.google.com/abc-defg-hij?demo"
+    },
+    {
+      "id": "s4",
+      "mentorId": "m3",
+      "title": "Fisika: Gerak Lurus Berubah Beraturan",
+      "subject": "Fisika",
+      "grade": "10th",
+      "date": "2026-11-09",
+      "time": "18:00",
+      "duration": 120,
+      "type": "offline",
+      "status": "scheduled",
+      "address": "Jl. Sudirman No. 45, Kel. Menteng, Kec. Menteng, Jakarta Pusat 10310"
+    },
+    {
+      "id": "s5",
+      "mentorId": "m4",
+      "title": "Biologi: Genetika Mendel",
+      "subject": "Biologi",
+      "grade": "11th",
+      "date": "2026-11-13",
+      "time": "17:00",
+      "duration": 120,
+      "type": "offline",
+      "status": "scheduled",
+      "address": "Jl. Gatot Subroto Kav. 12, Kel. Kuningan, Kec. Setiabudi, Jakarta Selatan 12920"
+    },
+    {
+      "id": "s6",
+      "mentorId": "m5",
+      "title": "TKJ: Dasar Jaringan Komputer",
+      "subject": "TKJ",
+      "grade": "11th",
+      "date": "2026-11-16",
+      "time": "19:00",
+      "duration": 120,
+      "type": "offline_privat",
+      "status": "scheduled",
+      "userAddress": "Jl. Melati No. 12, Kel. Kebon Jeruk, Kec. Kebon Jeruk, Jakarta Barat 11530"
+    },
+    {
+      "id": "s7",
+      "mentorId": "m6",
+      "title": "Membaca: Kosa Kata Dasar",
+      "subject": "Membaca",
+      "grade": "Kindergarten",
+      "date": "2026-11-21",
+      "time": "09:00",
+      "duration": 90,
+      "type": "offline_privat",
+      "status": "scheduled",
+      "userAddress": "Jl. Anggrek No. 5, Kel. Cilandak, Kec. Cilandak, Jakarta Selatan 12430"
+    }
+  ],
+  "posts": [
+    {
+      "id": "p1",
+      "authorId": "u11",
+      "authorName": "Ayu Pramesti",
+      "authorHandle": "ayupram",
+      "authorInitials": "AP",
+      "authorAvatarColor": "#EE3D5A",
+      "authorRole": "member",
+      "content": "Jujur ya, aku baru sadar belajar malam jam 11 itu cuma bikin aku ngantuk, bukan paham. Pindah ke jam 6 pagi dan rasanya beda banget. Ada yang samaan?",
+      "date": "2026-10-28",
+      "time": "07:12",
+      "likes": 64,
+      "reposts": 4,
+      "topic": "Curhat",
+      "comments": [
+        {
+          "user": "Budi Santoso, S.Pd",
+          "handle": "pakbudi",
+          "role": "edumate",
+          "text": "Sama persis. Otak itu butuh tidur buat mindahin memori jangka pendek ke jangka panjang, jadi ngantuk = belajar bocor.",
+          "time": "07:40",
+          "likes": 12,
+          "replies": [
+            {
+              "user": "Ayu Pramesti",
+              "handle": "ayupram",
+              "role": "member",
+              "text": "Oh jadi itu alasannya. Makasih pak, aku kira cuma aku yang lemah 😅",
+              "time": "07:52",
+              "likes": 3,
+              "replies": []
+            }
+          ]
+        },
+        {
+          "user": "Nadia Safira",
+          "handle": "nadiasaf",
+          "role": "member",
+          "text": "Aku kebalikan, pagi malah blank. Kayaknya tiap orang beda jam emasnya ya",
+          "time": "08:05",
+          "likes": 5,
+          "replies": []
+        }
+      ],
+      "isDemo": true
+    },
+    {
+      "id": "p2",
+      "authorId": "m2",
+      "authorName": "Siti Rahayu, M.Pd",
+      "authorHandle": "busiti",
+      "authorInitials": "SR",
+      "authorAvatarColor": "#0249E1",
+      "authorRole": "edumate",
+      "content": "Nggak semua hal harus dikejar cepat. Kalau kamu lagi di fase \"kok aku lambat banget\", itu biasanya tanda kamu sedang belajar hal yang benar-benar baru, bukan tanda kamu nggak mampu.",
+      "date": "2026-10-27",
+      "time": "20:15",
+      "likes": 183,
+      "reposts": 27,
+      "topic": "Tips",
+      "comments": [
+        {
+          "user": "Raka Dirgantara",
+          "handle": "rakadi",
+          "role": "member",
+          "text": "Butuh banget baca ini hari ini. Terima kasih bu 🙏",
+          "time": "20:30",
+          "likes": 21,
+          "replies": []
+        },
+        {
+          "user": "Maya Indah",
+          "handle": "mayaindah",
+          "role": "member",
+          "text": "Simpan dulu, mau aku tunjukin ke anakku yang lagi down",
+          "time": "21:00",
+          "likes": 9,
+          "replies": []
+        }
+      ],
+      "isDemo": true
+    },
+    {
+      "id": "p3",
+      "authorId": "u12",
+      "authorName": "Raka Dirgantara",
+      "authorHandle": "rakadi",
+      "authorInitials": "RD",
+      "authorAvatarColor": "#111111",
+      "authorRole": "member",
+      "content": "Pertanyaan random: kalau kalian lupa materi yang udah dipelajari seminggu lalu, itu normal nggak sih? Atau cara belajarku yang salah?",
+      "date": "2026-10-27",
+      "time": "13:40",
+      "likes": 38,
+      "reposts": 2,
+      "topic": "Tanya",
+      "comments": [
+        {
+          "user": "Dewi Lestari, S.Pd",
+          "handle": "budewi",
+          "role": "edumate",
+          "text": "Normal banget. Yang bikin nempel itu bukan baca ulang, tapi nyoba inget tanpa lihat catatan. Tes diri sendiri 5 menit > baca ulang 30 menit.",
+          "time": "14:02",
+          "likes": 34,
+          "replies": [
+            {
+              "user": "Raka Dirgantara",
+              "handle": "rakadi",
+              "role": "member",
+              "text": "Berarti selama ini aku salah metode. Mau coba mulai besok",
+              "time": "14:15",
+              "likes": 6,
+              "replies": []
+            }
+          ]
+        }
+      ],
+      "isDemo": true
+    },
+    {
+      "id": "p4",
+      "authorId": "u13",
+      "authorName": "Nadia Safira",
+      "authorHandle": "nadiasaf",
+      "authorInitials": "NS",
+      "authorAvatarColor": "#DAFB71",
+      "authorRole": "member",
+      "content": "Update kecil: 14 hari streak belajar tanpa bolong 🔥 Bukan karena rajin, tapi karena target aku turunin jadi 20 menit sehari. Ternyata yang penting bukan lama, tapi nggak putus.",
+      "date": "2026-10-26",
+      "time": "21:05",
+      "likes": 229,
+      "reposts": 41,
+      "topic": "Pencapaian",
+      "imageKey": "trophy-star",
+      "comments": [
+        {
+          "user": "Ayu Pramesti",
+          "handle": "ayupram",
+          "role": "member",
+          "text": "20 menit sehari itu underrated banget. Ikutan dari hari ini",
+          "time": "21:20",
+          "likes": 11,
+          "replies": []
+        },
+        {
+          "user": "Rizky Pratama, S.Kom",
+          "handle": "rizkyp",
+          "role": "edumate",
+          "text": "Ini namanya bikin standar yang bisa kamu penuhi di hari terburukmu. Pintar.",
+          "time": "22:10",
+          "likes": 18,
+          "replies": []
+        }
+      ],
+      "isDemo": true
+    },
+    {
+      "id": "p5",
+      "authorId": "m5",
+      "authorName": "Rizky Pratama, S.Kom",
+      "authorHandle": "rizkyp",
+      "authorInitials": "RP",
+      "authorAvatarColor": "#80B0EC",
+      "authorRole": "edumate",
+      "content": "Buka sesi tanya bebas di kolom komentar sampai nanti malam. Mau tanya soal karier, cara belajar, atau sekadar bingung mulai dari mana, lempar aja. Nggak ada pertanyaan yang terlalu dasar di sini.",
+      "date": "2026-10-26",
+      "time": "16:30",
+      "likes": 97,
+      "reposts": 14,
+      "topic": "Tanya",
+      "comments": [
+        {
+          "user": "Fajar Nugroho",
+          "handle": "fajarn",
+          "role": "member",
+          "text": "Kalau sudah kerja tapi pengen pindah bidang, telat nggak sih di umur 28?",
+          "time": "16:45",
+          "likes": 15,
+          "replies": [
+            {
+              "user": "Rizky Pratama, S.Kom",
+              "handle": "rizkyp",
+              "role": "edumate",
+              "text": "Nggak. Yang bikin telat itu nunggu sampai merasa siap. Mulai dari proyek kecil dulu, bukan dari sertifikat.",
+              "time": "16:58",
+              "likes": 29,
+              "replies": []
+            }
+          ]
+        }
+      ],
+      "isDemo": true
+    },
+    {
+      "id": "p6",
+      "authorId": "u14",
+      "authorName": "Fajar Nugroho",
+      "authorHandle": "fajarn",
+      "authorInitials": "FN",
+      "authorAvatarColor": "#2E6BE8",
+      "authorRole": "member",
+      "content": "Rekomendasi receh tapi ngaruh: pindahin HP ke ruangan lain, bukan cuma dibalik di meja. Selama masih keliatan, tangan tetap cari sendiri. Fokusku naik jauh setelah itu.",
+      "date": "2026-10-25",
+      "time": "19:00",
+      "likes": 112,
+      "reposts": 19,
+      "topic": "Rekomendasi",
+      "comments": [
+        {
+          "user": "Nadia Safira",
+          "handle": "nadiasaf",
+          "role": "member",
+          "text": "Tested. Tapi aku masih kalah kalau laptopnya yang buka YouTube 😭",
+          "time": "19:22",
+          "likes": 24,
+          "replies": []
+        }
+      ],
+      "isDemo": true
+    },
+    {
+      "id": "p7",
+      "authorId": "m1",
+      "authorName": "Budi Santoso, S.Pd",
+      "authorHandle": "pakbudi",
+      "authorInitials": "BS",
+      "authorAvatarColor": "#02308F",
+      "authorRole": "edumate",
+      "content": "Satu hal yang jarang dibilang: bosan itu bukan alasan buat berhenti, tapi sinyal buat ganti cara. Kalau baca bikin ngantuk, coba jelaskan materinya ke orang lain. Kalau masih bosan, coba kerjakan soalnya dulu sebelum baca teorinya.",
+      "date": "2026-10-25",
+      "time": "09:20",
+      "likes": 156,
+      "reposts": 22,
+      "topic": "Tips",
+      "comments": [],
+      "isDemo": true
+    },
+    {
+      "id": "p8",
+      "authorId": "u15",
+      "authorName": "Maya Indah",
+      "authorHandle": "mayaindah",
+      "authorInitials": "MI",
+      "authorAvatarColor": "#EE3D5A",
+      "authorRole": "member",
+      "content": "Ada yang pernah ngerasa semangat banget di hari pertama, terus hilang di hari keempat? Aku pengen tahu kalian bangkitnya gimana, bukan tips teori ya, pengalaman asli aja.",
+      "date": "2026-10-24",
+      "time": "10:05",
+      "likes": 71,
+      "reposts": 6,
+      "topic": "Curhat",
+      "comments": [
+        {
+          "user": "Fajar Nugroho",
+          "handle": "fajarn",
+          "role": "member",
+          "text": "Aku kasih izin ke diri sendiri buat belajar 5 menit aja di hari males. Seringnya kelewat jadi 30 menit.",
+          "time": "10:30",
+          "likes": 17,
+          "replies": []
+        },
+        {
+          "user": "Siti Rahayu, M.Pd",
+          "handle": "busiti",
+          "role": "edumate",
+          "text": "Hari keempat itu titik paling rawan, karena euforia habis tapi kebiasaan belum jadi. Lewat hari ketujuh biasanya jauh lebih ringan.",
+          "time": "11:12",
+          "likes": 26,
+          "replies": []
+        }
+      ],
+      "isDemo": true
+    },
+    {
+      "id": "p9",
+      "authorId": "m4",
+      "authorName": "Dewi Lestari, S.Pd",
+      "authorHandle": "budewi",
+      "authorInitials": "DL",
+      "authorAvatarColor": "#0249E1",
+      "authorRole": "edumate",
+      "content": "Pengingat buat yang sedang membandingkan diri dengan orang di internet: kamu lihat hasil mereka, bukan jumlah percobaan gagalnya. Perbandingan yang adil itu kamu hari ini vs kamu bulan lalu.",
+      "date": "2026-10-23",
+      "time": "18:45",
+      "likes": 204,
+      "reposts": 35,
+      "topic": "Umum",
+      "comments": [],
+      "isDemo": true
+    }
+  ],
+  "contests": [
+    {
+      "id": "c1",
+      "title": "Olimpiade Matematika Sekolah Dasar (OMSD) 2026",
+      "organizer": "Kemendikbudristek",
+      "description": "Kompetisi matematika tingkat nasional untuk siswa SD kelas 4-6. Terdiri dari 3 babak: sekolah, kabupaten/kota, dan nasional.",
+      "subject": "Matematika",
+      "grades": ["4th", "5th", "6th"],
+      "registrationOpen": "2026-11-01",
+      "registrationClose": "2026-11-30",
+      "eventDate": "2026-12-15",
+      "prize": "Medali emas, perak, perunggu + beasiswa",
+      "status": "open",
+      "isDemo": true
+    },
+    {
+      "id": "c2",
+      "title": "Lomba Karya Tulis Ilmiah (LKTI) Remaja",
+      "organizer": "BPPT & Kemendikbudristek",
+      "description": "Lomba penulisan karya tulis ilmiah untuk siswa SMP dan SMA. Tema: 'Inovasi Teknologi untuk Ketahanan Pangan'.",
+      "subject": "IPA",
+      "grades": ["7th", "8th", "9th", "10th", "11th", "12th"],
+      "registrationOpen": "2026-10-15",
+      "registrationClose": "2026-12-01",
+      "eventDate": "2027-01-20",
+      "prize": "Total hadiah 500 juta + sertifikat internasional",
+      "status": "open",
+      "isDemo": true
+    },
+    {
+      "id": "c3",
+      "title": "Indonesian National Science Olympiad (OSN) 2026",
+      "organizer": "Kemendikbudristek",
+      "description": "Olimpiade sains tingkat nasional meliputi Matematika, Fisika, Biologi, Kimia, Astronomi, Komputer, Ekonomi, Kebumian, dan Geografi.",
+      "subject": "IPA",
+      "grades": ["7th", "8th", "9th", "10th", "11th", "12th"],
+      "registrationOpen": "2026-09-01",
+      "registrationClose": "2026-10-31",
+      "eventDate": "2027-02-10",
+      "prize": "Medali + hak ke OSN Internasional",
+      "status": "closed",
+      "isDemo": true
+    },
+    {
+      "id": "c4",
+      "title": "Gemastik 2026 - Lomba Komputasi",
+      "organizer": "Kemendikbudristek",
+      "description": "Gemastik bidang Komputasi untuk mahasiswa dan pelajar. Kategori: Pemrograman, Jaringan, Keamanan Siber, Data Science.",
+      "subject": "TKJ",
+      "grades": ["10th", "11th", "12th"],
+      "registrationOpen": "2026-11-15",
+      "registrationClose": "2026-12-31",
+      "eventDate": "2027-03-01",
+      "prize": "Medali + sertifikat + magang di tech company",
+      "status": "upcoming",
+      "isDemo": true
+    },
+    {
+      "id": "c5",
+      "title": "Festival Literasi Anak Indonesia",
+      "organizer": "Yayasan Literasi Anak",
+      "description": "Festival bermain cerita, lomba menulis cerita pendek, dan baca puisi untuk anak usia 6-12 tahun.",
+      "subject": "Menulis",
+      "grades": ["1st", "2nd", "3rd", "4th", "5th", "6th"],
+      "registrationOpen": "2026-11-10",
+      "registrationClose": "2026-12-20",
+      "eventDate": "2027-01-15",
+      "prize": "Buku gratis + publikasi di majalah anak + trophy",
+      "status": "open",
+      "isDemo": true
+    }
+  ]
+}

@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>EC Games — Kelas Multiplayer</title>
+  <script>
+    (function () {
+      try {
+        var p = location.pathname;
+        if (/\/zep-game$/.test(p)) location.replace(p + "/" + location.search + location.hash);
+      } catch (_) {}
+    })();
+  </script>
+  <style>.hidden{display:none!important}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=31" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- ============ 1. LOBBY ============ -->
+    <section id="screen-lobby" class="screen">
+      <div class="ec-hero">
+        <span class="ec-badge">Educrazy · Game Center</span>
+        <h1 class="ec-title">EC <span>Games</span></h1>
+        <p class="ec-tag">Belajar bareng di dunia virtual — jawab kuis, kumpulin poin!</p>
+      </div>
+      <div class="lobby-card">
+        <p class="subtitle" id="lobby-sub">Isi nama &amp; atur karaktermu di Wardrobe, lalu buat room atau join pakai kode.</p>
+        <label class="field">
+          <span>Nama kamu</span>
+          <input id="in-name" maxlength="14" placeholder="cth: Dammar" autocomplete="off" />
+        </label>
+        <div class="field">
+          <span>Karakter &amp; wardrobe</span>
+          <div id="wardrobe" class="wardrobe">
+            <div class="look-panel">
+              <div class="look-stage" id="look-stage">
+                <canvas id="look-preview" aria-label="Pratinjau karakter"></canvas>
+              </div>
+              <div class="look-meta">
+                <p class="look-eyebrow">Tampilan</p>
+                <p class="look-name is-empty" id="look-name">Karakter kamu</p>
+                <div class="look-actions">
+                  <button type="button" id="look-random" class="look-act">Acak</button>
+                  <button type="button" id="look-reset" class="look-act">Reset</button>
+                </div>
+                <div class="look-progress" id="look-progress" title="Item eksklusif terbuka dengan bermain: jawab benar, kumpulkan poin, menang, atau streak."></div>
+              </div>
+            </div>
+            <div class="look-picker">
+              <div id="look-tabs" class="look-tabs" role="tablist" aria-label="Kategori wardrobe"></div>
+              <div id="look-colorrow" class="look-colorrow" hidden></div>
+              <div id="look-grid" class="look-grid" role="tabpanel" aria-label="Pilihan karakter"></div>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <span>Mode permainan</span>
+          <div id="mode-pick" class="mode-pick">
+            <button type="button" data-mode="zones" class="sel" aria-pressed="true"><span class="pick-title">Zona ABCD</span><span class="pick-sub">Berdiri di zona warna</span></button>
+            <button type="button" data-mode="chase" aria-pressed="false"><span class="pick-title">Rebutan kelinci</span><span class="pick-sub">Kejar &amp; tangkap</span></button>
+            <button type="button" data-mode="race" aria-pressed="false"><span class="pick-title">Balapan</span><span class="pick-sub">Jawab, buka gembok</span></button>
+          </div>
+        </div>
+        <div class="field">
+          <span>Aturan tambahan (opsional)</span>
+          <div id="rules-pick" class="rules-pick">
+            <button type="button" data-rule="survival" aria-pressed="false"><span class="pick-title">Survival</span><span class="pick-sub">Salah = jadi hantu</span></button>
+            <button type="button" data-rule="team" aria-pressed="false"><span class="pick-title">Tim</span><span class="pick-sub">Poin per tim</span></button>
+            <button type="button" data-rule="rounds" aria-pressed="false"><span class="pick-title">Ronde</span><span class="pick-sub">Bagi per babak</span></button>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button id="btn-create" class="btn primary big">Buat room</button>
+          <button id="btn-solo" class="btn ghost">Latihan dengan bot</button>
+        </div>
+        <div class="join-row">
+          <input id="in-code" maxlength="6" placeholder="Kode room" autocomplete="off" />
+          <button id="btn-join" class="btn secondary">Masuk</button>
+        </div>
+        <p id="edu-back" class="hint hidden">Soal dari Educrazy · <a href="../resources.html?type=game">← Kembali ke daftar game</a></p>
+        <p class="hint how"><b>Gerak</b> WASD / panah · <b>Chat</b> Enter · Jawab dengan berdiri di zona A/B/C/D · Benar beruntun menambah streak.</p>
+        <p class="hint"><a href="../resources.html?type=game">← Kembali ke daftar game Educrazy</a></p>
+        <p id="lobby-err" class="err"></p>
+      </div>
+    </section>
+
+    <!-- ============ 2. RUANG TUNGGU ============ -->
+    <section id="screen-room" class="screen hidden">
+      <div class="room-card">
+        <div class="room-top">
+          <div>
+            <div class="logo small">🎮 <span class="logo-tag">EC Games</span></div>
+            <div class="room-code">KODE: <b id="room-code">------</b>
+              <button id="btn-copy" class="link-btn" title="Salin kode">📋</button>
+            </div>
+            <p class="hint" id="room-quiz-label">Soal bawaan</p>
+            <p class="hint" id="room-mode-label">🅰️ Mode: Zona ABCD</p>
+            <div id="host-mode-pick" class="mode-pick small hidden">
+              <button type="button" data-hmode="zones" class="sel">🅰️ Zona</button>
+              <button type="button" data-hmode="chase">🐇 Kelinci</button>
+              <button type="button" data-hmode="race">🏁 Balapan</button>
+            </div>
+            <p class="hint" id="room-rules-label">Aturan ZEP: —</p>
+            <div id="host-rules-pick" class="rules-pick small hidden">
+              <button type="button" data-hrule="survival">👻 Survival</button>
+              <button type="button" data-hrule="team">🔴🔵 Tim</button>
+              <button type="button" data-hrule="rounds">🔁 Ronde</button>
+            </div>
+          </div>
+          <button id="btn-leave" class="btn ghost small">Keluar</button>
+        </div>
+        <h3>Pemain (<span id="player-count">0</span>)</h3>
+        <ul id="player-list" class="player-list"></ul>
+        <div class="room-actions">
+          <button id="btn-enter" class="btn primary big">🚶 Masuk ke Map</button>
+          <button id="btn-start-quiz" class="btn secondary hidden">▶ Mulai Kuis (Host)</button>
+          <button id="btn-claim-host" class="btn ghost small hidden">👑 Ambil alih host</button>
+        </div>
+        <p class="hint">Bagikan kode ke teman. Masuk map dulu, lalu host menekan <b>Mulai Kuis</b>.</p>
+      </div>
+    </section>
+
+    <!-- ============ 3. ARENA ============ -->
+    <section id="screen-game" class="screen hidden">
+      <div id="hud">
+        <div class="hud-left">
+          <span class="pill">🏫 <b id="hud-code">------</b></span>
+          <span class="pill" id="hud-mode">🅰️ Zona</span>
+          <span class="pill hidden" id="hud-team">🔴 <b id="hud-team-n">0</b></span>
+          <span class="pill hidden" id="hud-round"><b id="hud-round-n">Ronde 1</b></span>
+          <span class="pill">👥 <b id="hud-players">1</b></span>
+          <span class="pill">⭐ <b id="hud-score">0</b> <span id="hud-streak" class="streak hidden">🔥<b id="hud-streak-n">0</b></span></span>
+          <span class="pill hidden" id="hud-gate">🚪 <b id="hud-gate-n">0/0</b></span>
+          <span class="pill hidden" id="hud-time">⏱ <b id="hud-time-n">0:00</b></span>
+        </div>
+        <div class="hud-right">
+          <button id="btn-host-panel" class="btn ghost small hidden">🎛️ Host</button>
+          <button id="btn-board" class="btn ghost small">🏆 Skor</button>
+          <button id="btn-help" class="btn ghost small">❓</button>
+          <button id="btn-quit" class="btn ghost small">Keluar</button>
+        </div>
+      </div>
+
+      <div id="stage-wrap">
+        <canvas id="game" width="960" height="600"></canvas>
+        <div id="q-banner" class="q-banner hidden">
+          <div class="q-banner-top"><span id="quiz-qnum" class="pill">Soal 1/10</span><span id="quiz-timer" class="pill timer">15</span></div>
+          <p id="quiz-q" class="quiz-q"></p>
+          <p id="quiz-status" class="quiz-status"></p>
+        </div>
+        <div id="duel" class="duel hidden">
+          <div class="duel-top"><span id="duel-who" class="pill">🐇 menangkap!</span><span id="duel-timer" class="pill timer">12</span></div>
+          <p id="duel-q" class="quiz-q"></p>
+          <div id="duel-opts" class="duel-opts"></div>
+          <p id="duel-status" class="quiz-status"></p>
+        </div>
+        <div id="raceq" class="duel hidden">
+          <div class="duel-top"><span id="raceq-who" class="pill">Question 1</span><span id="raceq-type" class="pill qtype">Pilihan Ganda</span><button id="raceq-close" class="btn ghost small" type="button">✕</button></div>
+          <p id="raceq-q" class="quiz-q"></p>
+          <div id="raceq-body" class="duel-opts"></div>
+          <p id="raceq-status" class="quiz-status"></p>
+        </div>
+        <div id="race-result" class="hidden"><b id="race-result-n">1</b><span id="race-result-t">Jawaban benar</span></div>
+        <div id="start-count" class="start-count hidden">3</div>
+        <div id="ghost-timer" class="ghost-timer hidden">👻 <b id="ghost-timer-n">10</b><span>s</span></div>
+        <div id="joystick" class="hidden"><div id="stick"></div></div>
+        <div id="chat-log" class="chat-log" aria-live="polite"></div>
+        <form id="chat-form" class="chat-form hidden" autocomplete="off">
+          <input id="chat-in" maxlength="60" placeholder="Ketik chat + Enter..." />
+        </form>
+        <button id="btn-chat-toggle" class="btn ghost small chat-toggle">💬</button>
+      </div>
+
+      <div id="board" class="panel hidden">
+        <h3>🏆 Papan Skor</h3>
+        <ol id="board-list"></ol>
+        <button id="btn-board-close" class="btn ghost small">Tutup</button>
+      </div>
+
+      <div id="host-panel" class="panel hidden">
+        <h3>🎛️ Kontrol Host</h3>
+        <div class="btn-row col">
+          <button id="btn-host-start" class="btn secondary">▶ Mulai Kuis</button>
+          <button id="btn-host-next" class="btn ghost">⏭ Lanjut Soal Berikutnya</button>
+          <button id="btn-host-end" class="btn ghost">⏹ Akhiri Kuis</button>
+        </div>
+        <button id="btn-host-close" class="btn ghost small">Tutup</button>
+      </div>
+
+      <div id="help-panel" class="panel hidden">
+        <h3>❓ Cara Main</h3>
+        <ul class="help-list">
+          <li>🚶 Jalan: WASD / panah / joystick.</li>
+          <li>🅰️🅱️ Saat kuis jalan, <b>berdiri di zona warna</b> A/B/C/D untuk menjawab.</li>
+          <li>🐇 Mode kelinci: <b>kejar &amp; sentuh kelinci</b>, lalu jawab duel 12 detik. Salah → kelinci lepas lagi!</li>
+          <li>🏁 Mode balapan: <b>lari ke kanan</b>, jawab soal (pilihan/isian/⭕❌) untuk <b>buka gembok</b>, finis duluan menang!</li>
+          <li>🔥 Jawaban benar beruntun menaikkan streak & bonus poin.</li>
+          <li>👻 <b>Survival</b>: salah / tidak menjawab = jadi hantu. Bertahan sampai akhir!</li>
+          <li>🔴🔵 <b>Tim</b>: poin digabung per tim, pemenang = tim skor tertinggi.</li>
+          <li>🔁 <b>Ronde</b>: soal dibagi jadi beberapa babak.</li>
+          <li>💬 Chat: tekan Enter.</li>
+          <li>🎛️ Host: mulai, skip soal, akhiri kuis.</li>
+        </ul>
+        <button id="btn-help-close" class="btn ghost small">Tutup</button>
+      </div>
+
+      <div id="podium" class="panel hidden">
+        <h3>🎉 Hasil Akhir</h3>
+        <ol id="podium-list"></ol>
+        <div class="btn-row">
+          <button id="btn-again" class="btn secondary hidden">🔁 Main Lagi (Host)</button>
+          <button id="btn-save-edu" class="btn primary hidden">💾 Simpan Nilai ke Educrazy</button>
+          <button id="btn-continue" class="btn primary">🚶 Lanjut Jalan</button>
+        </div>
+        <p class="hint center">Pemain terbaik dapat mahkota 👑 di atas karakternya.</p>
+      </div>
+      <div id="toast" class="toast hidden"></div>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="questions.js?v=31"></script>
+  <script src="avatar.js?v=31"></script>
+  <script src="app.js?v=31"></script>
+</body>
+</html>
+
